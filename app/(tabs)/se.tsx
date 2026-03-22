@@ -11,7 +11,7 @@ export default function HomeScreen() {
         <Text>어디로 떠나볼까요?</Text>
       </View>
       <View style={styles.footerContainer}>
-        <Link href='/modal'>
+        <Link href='./shuttleSeoul'>
           <Text style={styles.cardText}>회기역-경희대 01번</Text>
         </Link>
         <Link href='/modal'>
