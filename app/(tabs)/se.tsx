@@ -11,7 +11,18 @@ export default function HomeScreen() {
         <Text>어디로 떠나볼까요?</Text>
       </View>
       <View style={styles.footerContainer}>
-        <Link href="/process?vehicle=busSeoulOne" />
+        <Link href='/modal'>
+          <Text style={styles.cardText}>회기역-경희대 01번</Text>
+        </Link>
+        <Link href='/modal'>
+          <Text style={styles.cardText}>회기역-외대앞역 02번</Text>
+        </Link>
+        <Link href='/modal'>
+          <Text style={styles.cardText}>자율주행 A01번</Text>
+        </Link>
+        <Link href='/modal'>
+          <Text style={styles.cardText}>서울-국제 셔틀버스</Text>
+        </Link>
 
         <Button theme='primary' label="Choose a photo" />
         <Button label="Use this photo" />
