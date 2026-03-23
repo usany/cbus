@@ -36,7 +36,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="se"
+        name="se/index"
         options={{
           title: "Seoul",
           tabBarIcon: ({ color }) => (
@@ -46,6 +46,12 @@ export default function TabLayout() {
               color={color}
             />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="se/shuttleSeoul"
+        options={{
+          href: null,
         }}
       />
       <Tabs.Screen
