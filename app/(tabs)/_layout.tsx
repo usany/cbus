@@ -55,7 +55,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="gl"
+        name="gl/index"
         options={{
           title: "Global",
           tabBarIcon: ({ color }) => (
@@ -68,7 +68,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="gw"
+        name="gw/index"
         options={{
           title: "Gwangneung",
           tabBarIcon: ({ color }) => (
