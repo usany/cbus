@@ -1,58 +1,42 @@
 import { Tabs } from "expo-router";
 import React from "react";
 
-import { HapticTab } from "@/components/haptic-tab";
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
-import { useTheme } from "@/contexts/theme-context";
+import { DockNavigation } from "@/app/components/DockNavigation";
 
 export default function TabLayout() {
-  // const colorScheme = useColorScheme();
-  const { theme, colors } = useTheme();
   return (
     <Tabs
+      tabBar={() => <DockNavigation />}
       screenOptions={{
-        tabBarActiveTintColor: colors.tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarStyle: {
-          backgroundColor: Colors[theme ?? "light"].background,
-        },
       }}
     >
       <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: "Explore",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="se/index"
         options={{
-          title: "Seoul",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol
-              size={28}
-              name="chevron.left.forwardslash.chevron.right"
-              color={color}
-            />
-          ),
+          href: "/se",
         }}
       />
       <Tabs.Screen
-        name="se/shuttleSeoul"
+        name="se/busOne"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="se/busTwo"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="se/busThree"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="se/shuttle"
         options={{
           href: null,
         }}
@@ -60,27 +44,49 @@ export default function TabLayout() {
       <Tabs.Screen
         name="gl/index"
         options={{
-          title: "Global",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol
-              size={28}
-              name="chevron.left.forwardslash.chevron.right"
-              color={color}
-            />
-          ),
+          href: "/gl",
+        }}
+      />
+      <Tabs.Screen
+        name="gl/busTo"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="gl/busFrom"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="gl/commute"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="gl/shuttle"
+        options={{
+          href: null,
         }}
       />
       <Tabs.Screen
         name="gw/index"
         options={{
-          title: "Gwangneung",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol
-              size={28}
-              name="chevron.left.forwardslash.chevron.right"
-              color={color}
-            />
-          ),
+          href: "/gw",
+        }}
+      />
+      <Tabs.Screen
+        name="gw/busN"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="gw/busJ"
+        options={{
+          href: null,
         }}
       />
     </Tabs>
