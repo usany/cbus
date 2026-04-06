@@ -77,7 +77,6 @@ export const useBusData = (pathname: string) => {
 
     const data = await response.json();
     const res = data.data.gyeonggiBusArrival?.response?.msgBody?.busArrivalList
-    console.log(data)
     return res;
   };
 
@@ -89,12 +88,24 @@ export const useBusData = (pathname: string) => {
       const data = await fetchStep(busId);
       setBusData(data);
     } else {
-      steps.forEach(async (step) => {
+      console.log('steps', steps)
+      const prevData = {} as { [key: number]: any };
+      const fetchPromises = steps.map(async (step) => {
         if (typeof step !== 'string' && 'id' in step) {
-          const data = await fetchStep((step as any).id);
-          setBusData(prev => ({ ...prev, [(step as any).id]: data }));
+          try {
+            const data = await fetchStep((step as any).id);
+            prevData[(step as any).id] = data
+            return data;
+          } catch (error) {
+            console.error('Error fetching bus data:', error);
+            return null;
+          }
         }
+        return null;
       });
+      
+      await Promise.all(fetchPromises);
+      setBusData(prevData);
     }
     setTimeUntilNextFetch(60);
   }, [vehicle, getProcessSteps]);
