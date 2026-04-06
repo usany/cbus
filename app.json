@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "my-app",
-    "slug": "my-app",
+    "slug": "khusan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -48,7 +48,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "a4cb4594-52b5-4d54-8a55-5c8c6ae691b9"
+        "projectId": "a9772f89-ad7b-4591-b76c-902970b616a6"
       }
     },
     "owner": "ckd_qja"

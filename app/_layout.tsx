@@ -8,9 +8,12 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
+import { SplashScreen } from "@/components/splash-screen";
 import { CampusProvider } from "@/contexts/campus-context";
 import { LanguageProvider } from "@/contexts/language-context";
 import { ThemeProvider } from "@/contexts/theme-context";
+import { useAppLoading } from "@/hooks/use-app-loading";
+
 export const unstable_settings = {
   anchor: "(tabs)",
 };
@@ -54,18 +57,30 @@ export default function RootLayout() {
       <ThemeProvider>
         <CampusProvider>
           <NavigationThemeWrapper>
-            <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen name="se/shuttleSeoul" options={{ headerShown: false }} />
-              <Stack.Screen
-                name="modal"
-                options={{ presentation: "modal", title: "Modal" }}
-              />
-            </Stack>
+            <AppContent />
             <StatusBar style="auto" />
           </NavigationThemeWrapper>
         </CampusProvider>
       </ThemeProvider>
     </LanguageProvider>
+  );
+}
+
+function AppContent() {
+  const { isLoading, isReady } = useAppLoading();
+
+  if (!isReady) {
+    return <SplashScreen />;
+  }
+
+  return (
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="se/shuttleSeoul" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="modal"
+        options={{ presentation: "modal", title: "Modal" }}
+      />
+    </Stack>
   );
 }

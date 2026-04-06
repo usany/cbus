@@ -6,6 +6,7 @@ type CampusType = 'se' | 'gl' | 'gw';
 interface CampusContextType {
   campus: CampusType;
   setCampus: (campus: CampusType) => void;
+  isLoading: boolean;
 }
 
 const CampusContext = createContext<CampusContextType | undefined>(undefined);
@@ -52,6 +53,7 @@ export const CampusProvider: React.FC<CampusProviderProps> = ({ children }) => {
   const value = {
     campus,
     setCampus,
+    isLoading,
   };
 
   return (
