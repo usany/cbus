@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "my-app",
-    "slug": "khusan",
+    "slug": "khubus-hz8zsu-9apcjy1kl5htk",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.changbea.khubushz8zsu9apcjy1kl5htk",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -48,9 +52,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "8ee90aed-1ff4-4ce7-ac16-0a6d7229f401"
+        "projectId": "777dbfdf-dd87-4a3b-a05e-1215d3b8f809"
       }
     },
-    "owner": "ckd_qja"
+    "owner": "changbea"
   }
 }

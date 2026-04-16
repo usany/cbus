@@ -1,6 +1,6 @@
 import { ThemedText } from "@/components/themed-text";
 import { usePathname } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import Previous from "../../components/Previous";
 import { process } from "../../components/process";
 import { getProcessSteps } from "../../components/steps";
@@ -25,7 +25,7 @@ export default function Commute() {
   }
 
   return (
-    <View style={styles.mainContainer}>
+    <ScrollView style={styles.mainContainer}>
       <View style={styles.mainContent}>
         <View style={styles.processSection}>
           <ThemedText style={styles.processTitle}>{process[vehicle]}</ThemedText>
@@ -71,7 +71,7 @@ export default function Commute() {
         </View>
         <Previous />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
