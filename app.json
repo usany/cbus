@@ -24,7 +24,7 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.ckd_qja.myapp"
+      "package": "com.ckd_qja.khusan"
     },
     "web": {
       "output": "static",
@@ -55,6 +55,12 @@
         "projectId": "777dbfdf-dd87-4a3b-a05e-1215d3b8f809"
       }
     },
-    "owner": "changbea"
+    "owner": "changbea",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/777dbfdf-dd87-4a3b-a05e-1215d3b8f809"
+    }
   }
 }
