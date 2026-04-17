@@ -17,17 +17,17 @@ export function DockNavigation() {
   const dockItems: DockItem[] = [
     {
       path: "/se",
-      label: "se",
+      label: "서울",
       iconName: "time-outline",
     },
     {
       path: "/gl",
-      label: "gl",
+      label: "국제",
       iconName: "home-outline",
     },
     {
       path: "/gw",
-      label: "gw",
+      label: "광릉",
       iconName: "location-outline",
     },
   ];
