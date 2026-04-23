@@ -1,3 +1,4 @@
+import { useTheme } from "@/contexts/theme-context";
 import { Ionicons } from "@expo/vector-icons";
 import { usePathname } from "expo-router";
 import { useEffect, useState } from "react";
@@ -83,6 +84,7 @@ const Schedule = () => {
   // const hasFetched = useRef(false);
   const campus = pathname.includes('se') ? 'seoul' : pathname.includes('gw') ? 'gwangneung' : 'global';
   const selectedBus = busCollection[campus];
+  const { colors } = useTheme();
   
   const toggleAccordion = (index: number) => {
     setOpenAccordions(prev => {
@@ -272,10 +274,10 @@ const Schedule = () => {
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => setIsDrawerOpen(true)}
-          style={styles.scheduleButton}
+          style={[styles.scheduleButton, { backgroundColor: colors.card }]}
         >
-          <Text style={styles.scheduleTitle}>버스 시간표</Text>
-          <Text style={styles.scheduleSubtitle}>클릭하여 전체 버스 시간표 보기</Text>
+          <Text style={[styles.scheduleTitle, { color: colors.text }]}>버스 시간표</Text>
+          <Text style={[styles.scheduleSubtitle, { color: colors.icon }]}>클릭하여 전체 버스 시간표 보기</Text>
         </TouchableOpacity>
       </View>
 

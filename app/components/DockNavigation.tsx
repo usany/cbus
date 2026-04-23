@@ -13,7 +13,7 @@ export function DockNavigation() {
   const pathname = usePathname();
   const router = useRouter();
   const { colors } = useTheme();
-
+  
   const dockItems: DockItem[] = [
     {
       path: "/se",
