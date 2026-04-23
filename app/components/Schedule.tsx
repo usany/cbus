@@ -167,28 +167,28 @@ const Schedule = () => {
     const peekAlloc = bus.term;
     
     return (
-      <View key={index} style={styles.busItem}>
+      <View key={index} style={[styles.busItem, { backgroundColor: colors.card, borderColor: colors.border }]}>
         <View style={styles.busItemHeader}>
           <View style={styles.busItemHeaderLeft}>
-            <View style={styles.busNumber}>
-              <Text style={styles.busNumberText}>{index + 1}</Text>
+            <View style={[styles.busNumber, { backgroundColor: colors.primary }]}> 
+              <Text style={[styles.busNumberText, { color: colors.card }]}>{index + 1}</Text>
             </View>
-            <Text style={styles.routeName}>{routeName}</Text>
+            <Text style={[styles.routeName, { color: colors.text }]}>{routeName}</Text>
           </View>
-          <Text style={styles.timeText}>{upFirstTime}~{upLastTime}</Text>
+          <Text style={[styles.timeText, { color: colors.icon }]}>{upFirstTime}~{upLastTime}</Text>
         </View>
 
-        <View style={styles.busItemContent}>
+        <View style={[styles.busItemContent, { backgroundColor: colors.background, borderTopColor: colors.border }]}>
           <View style={styles.infoRow}>
-            <Ionicons name="time-outline" size={16} color="#6b7280" />
-            <Text style={styles.infoLabel}>운행시간</Text>
-            <Text style={styles.infoValue}>{upFirstTime}~{upLastTime}</Text>
+            <Ionicons name="time-outline" size={16} color={colors.icon} />
+            <Text style={[styles.infoLabel, { color: colors.text }]}>운행시간</Text>
+            <Text style={[styles.infoValue, { color: colors.text }]}>{upFirstTime}~{upLastTime}</Text>
           </View>
 
           <View style={styles.infoRow}>
-            <Ionicons name="calendar-outline" size={16} color="#6b7280" />
-            <Text style={styles.infoLabel}>배차간격</Text>
-            <Text style={styles.infoValue}>{peekAlloc}분</Text>
+            <Ionicons name="calendar-outline" size={16} color={colors.icon} />
+            <Text style={[styles.infoLabel, { color: colors.text }]}>배차간격</Text>
+            <Text style={[styles.infoValue, { color: colors.text }]}>{peekAlloc}분</Text>
           </View>
         </View>
       </View>
@@ -210,29 +210,29 @@ const Schedule = () => {
     const isOpen = openAccordions.has(index);
     
     return (
-      <View key={index} style={styles.accordionItem}>
+      <View key={index} style={[styles.accordionItem, { backgroundColor: colors.card, borderColor: colors.border }]}>
         <TouchableOpacity
           onPress={() => toggleAccordion(index)}
-          style={styles.accordionHeader}
+          style={[styles.accordionHeader, { backgroundColor: colors.card }]}
         >
           <View style={styles.accordionHeaderLeft}>
-            <View style={styles.busNumber}>
-              <Text style={styles.busNumberText}>{index + 1}</Text>
+            <View style={[styles.busNumber, { backgroundColor: colors.primary }]}>
+              <Text style={[styles.busNumberText, { color: colors.card }]}>{index + 1}</Text>
             </View>
-            <Text style={styles.routeName}>{routeName}</Text>
+            <Text style={[styles.routeName, { color: colors.text }]}>{routeName}</Text>
           </View>
           <View style={styles.accordionHeaderRight}>
-            <Text style={styles.timeText}>{upFirstTime}~{upLastTime}</Text>
+            <Text style={[styles.timeText, { color: colors.icon }]}>{upFirstTime}~{upLastTime}</Text>
             <Ionicons 
               name={isOpen ? "chevron-up" : "chevron-down"} 
               size={16} 
-              color="#6b7280" 
+              color={colors.icon} 
             />
           </View>
         </TouchableOpacity>
         
         {isOpen && (
-          <View style={[styles.accordionContent, { backgroundColor: colors.card }]}>
+          <View style={[styles.accordionContent, { backgroundColor: colors.background, borderTopColor: colors.border }]}>
             <View style={styles.infoRow}>
               <Ionicons name="time-outline" size={16} color={colors.icon} />
               <Text style={[styles.infoLabel, { color: colors.text }]}>운행시간</Text>
