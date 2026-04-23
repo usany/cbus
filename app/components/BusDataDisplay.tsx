@@ -11,23 +11,23 @@ interface BusData {
 interface BusDataDisplayProps {
   fetchedData: BusData[];
   isLastStep: boolean;
-  index: number;
+  // index: number;
 }
 
-export default function BusDataDisplay({ fetchedData, isLastStep, index }: BusDataDisplayProps) {
+export default function BusDataDisplay({ fetchedData, isLastStep }: BusDataDisplayProps) {
   const isSeoulBus = useSeoulBus()
   // if (!fetchedData || fetchedData.length === 0) {
   //   return <ThemedText>로딩 중...</ThemedText>;
   // }
   if (isSeoulBus) {
     // console.log(fetchedData[index])
-    const arrmsg = fetchedData[index].arrmsg1;
-    const routeName = fetchedData[index].rtNm;
+    const arrmsg = fetchedData[0].arrmsg1;
+    const routeName = fetchedData[0].rtNm;
     const predictTime1 = arrmsg.indexOf('분') < 0 ? arrmsg : arrmsg.slice(0, arrmsg.indexOf('분')+1);
     const locationNo1 = arrmsg.indexOf('분') < 0 ? 1 : parseInt(arrmsg.slice(arrmsg.indexOf('[')+1, arrmsg.indexOf('번')))+1;
-    const stationNm1 = fetchedData[index-locationNo1 < 0 ? 0 : index-locationNo1]?.stNm;
+    const stationNm1 = fetchedData[0-locationNo1 < 0 ? 0 : 0-locationNo1]?.stNm;
     return (
-      <ThemedText key={index} style={styles.busSubtitle}>
+      <ThemedText key={0} style={styles.busSubtitle}>
         Bus data: {routeName}
 {'\n'}
         {predictTime1 !== '출발대기' && predictTime1 !== '운행종료' ? `${predictTime1} (${locationNo1} 정거장) ${stationNm1}` : predictTime1}
