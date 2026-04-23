@@ -232,34 +232,34 @@ const Schedule = () => {
         </TouchableOpacity>
         
         {isOpen && (
-          <View style={styles.accordionContent}>
+          <View style={[styles.accordionContent, { backgroundColor: colors.card }]}>
             <View style={styles.infoRow}>
-              <Ionicons name="time-outline" size={16} color="#6b7280" />
-              <Text style={styles.infoLabel}>운행시간</Text>
-              <Text style={styles.infoValue}>{upFirstTime}~{upLastTime}</Text>
+              <Ionicons name="time-outline" size={16} color={colors.icon} />
+              <Text style={[styles.infoLabel, { color: colors.text }]}>운행시간</Text>
+              <Text style={[styles.infoValue, { color: colors.text }]}>{upFirstTime}~{upLastTime}</Text>
             </View>
             
             <View style={styles.scheduleSection}>
               <View style={styles.scheduleHeader}>
-                <Ionicons name="calendar-outline" size={16} color="#6b7280" />
-                <Text style={styles.infoLabel}>배차간격</Text>
+                <Ionicons name="calendar-outline" size={16} color={colors.icon} />
+                <Text style={[styles.infoLabel, { color: colors.text }]}>배차간격</Text>
               </View>
               <View style={styles.scheduleDetails}>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>평일:</Text>
-                  <Text style={styles.scheduleValue}>{peekAlloc}~{nPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>평일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{peekAlloc}~{nPeekAlloc}분</Text>
                 </View>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>토요일:</Text>
-                  <Text style={styles.scheduleValue}>{satPeekAlloc}~{satNPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>토요일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{satPeekAlloc}~{satNPeekAlloc}분</Text>
                 </View>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>일요일:</Text>
-                  <Text style={styles.scheduleValue}>{sunPeekAlloc}~{sunNPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>일요일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{sunPeekAlloc}~{sunNPeekAlloc}분</Text>
                 </View>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>공휴일:</Text>
-                  <Text style={styles.scheduleValue}>{wePeekAlloc}~{weNPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>공휴일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{wePeekAlloc}~{weNPeekAlloc}분</Text>
                 </View>
               </View>
             </View>
@@ -287,14 +287,14 @@ const Schedule = () => {
         presentationStyle="pageSheet"
         onRequestClose={() => setIsDrawerOpen(false)}
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>버스 시간표</Text>
+        <View style={[styles.modalContainer, { backgroundColor: colors.background }]}>
+          <View style={[styles.modalHeader, { borderBottomColor: colors.border }]}>
+            <Text style={[styles.modalTitle, { color: colors.text }]}>버스 시간표</Text>
             <TouchableOpacity
               onPress={() => setIsDrawerOpen(false)}
-              style={styles.closeButton}
+              style={[styles.closeButton, { backgroundColor: colors.card }]}
             >
-              <Ionicons name="chevron-down" size={20} color="#6b7280" />
+              <Ionicons name="chevron-down" size={20} color={colors.icon} />
             </TouchableOpacity>
           </View>
           
