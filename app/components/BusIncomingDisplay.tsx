@@ -6,25 +6,26 @@ import { useSeoulBus } from "./BusTimeline";
 interface BusData {
   locationNo1: string;
   routeName: string;
+  rtNm: string;
+  arrmsg1: string;
 }
 
 interface BusIncomingDisplayProps {
   fetchedData: BusData[];
-  index: number;
 }
 
-export default function BusIncomingDisplay({ fetchedData, index }: BusIncomingDisplayProps) {
+export default function BusIncomingDisplay({ fetchedData }: BusIncomingDisplayProps) {
   const isuseSeoulBus = useSeoulBus();
   // const targetDataList = fetchedData.filter((data: any) => data.locationNo1 === 1);
   // console.log('fetchedData', fetchedData);
   // console.log('isIncoming', fetchedData[index]?.arrmsg1);
   if (isuseSeoulBus) {
-    const routeName = fetchedData[index]?.rtNm
-    const isIncoming = fetchedData[index]?.arrmsg1?.includes('도착') || fetchedData[index]?.arrmsg1?.includes('0번째')
+    const routeName = fetchedData[0].rtNm
+    const isIncoming = fetchedData[0].arrmsg1?.includes('도착') || fetchedData[0].arrmsg1?.includes('0번째')
     return isIncoming ? (
       <View style={styles.busIncomingContainer}>
         <View style={styles.busIncomingText}>
-          <ThemedText key={index}>{routeName}</ThemedText>
+          <ThemedText key={0}>{routeName}</ThemedText>
         </View>
         <MaterialIcons name="directions-bus" size={24} color="#111827" />
       </View>

@@ -63,7 +63,7 @@ export default function BusTimeline() {
         {steps.map((step, index) => {
           // For bus steps, we can access the fetched data from state
           const stepId = typeof step !== 'string' && 'id' in step ? (step as any).id : null;
-          const fetchedData = !isuseSeoulBus ? busData[stepId] : itemList;
+          const fetchedData = !isuseSeoulBus ? busData[stepId] : [itemList[index]];
           // console.log('stepId', stepId)
           // console.log('fetchedData', fetchedData)
           return (
@@ -71,7 +71,7 @@ export default function BusTimeline() {
               <View style={styles.busIconWrapper}>
                 <View style={styles.busIconInner}>
                   {fetchedData && (
-                    <BusIncomingDisplay fetchedData={fetchedData} index={index} />
+                    <BusIncomingDisplay fetchedData={fetchedData} />
                   )}
                   <View style={styles.busStopIcon}>
                     <MaterialIcons name="keyboard-arrow-down" size={28} color="#fff" />
