@@ -71,7 +71,7 @@ export default function BusTimeline() {
               <View style={styles.busIconWrapper}>
                 <View style={styles.busIconInner}>
                   {fetchedData && (
-                    <BusIncomingDisplay fetchedData={!isuseSeoulBus ? busData[stepId] : [itemList[index]]} />
+                    <BusIncomingDisplay fetchedData={!isuseSeoulBus ? fetchedData : [itemList[index]]} />
                   )}
                   <View style={styles.busStopIcon}>
                     <MaterialIcons name="keyboard-arrow-down" size={28} color="#fff" />
