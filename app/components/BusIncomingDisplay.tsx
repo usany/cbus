@@ -27,7 +27,7 @@ export default function BusIncomingDisplay({ fetchedData }: BusIncomingDisplayPr
         <View style={styles.busIncomingText}>
           <ThemedText key={0}>{routeName}</ThemedText>
         </View>
-        <MaterialIcons name="directions-bus" size={24} color="#111827" />
+        <MaterialIcons name="directions-bus" size={24} color="#2563eb" />
       </View>
     ) : null;
   }
@@ -40,7 +40,7 @@ export default function BusIncomingDisplay({ fetchedData }: BusIncomingDisplayPr
           <ThemedText key={idx}>{data.routeName}</ThemedText>
         ))}
       </View>
-      <MaterialIcons name="directions-bus" size={24} color="#111827" />
+      <MaterialIcons name="directions-bus" size={24} color="#2563eb" />
     </View>
   ) : null;
 }
