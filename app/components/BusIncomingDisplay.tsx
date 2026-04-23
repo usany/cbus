@@ -14,13 +14,13 @@ interface BusIncomingDisplayProps {
 }
 
 export default function BusIncomingDisplay({ fetchedData, index }: BusIncomingDisplayProps) {
-  // const targetDataList = fetchedData.filter((data: any) => data.locationNo1 === 1);
   const isuseSeoulBus = useSeoulBus();
+  // const targetDataList = fetchedData.filter((data: any) => data.locationNo1 === 1);
   // console.log('fetchedData', fetchedData);
   // console.log('isIncoming', fetchedData[index]?.arrmsg1);
   if (isuseSeoulBus) {
-    const routeName = fetchedData[index]?.rtNm || fetchedData[index]?.routeName;
-    const isIncoming = fetchedData[index]?.arrmsg1?.includes('도착') || fetchedData[index]?.arrmsg1?.includes('0번째') || fetchedData[index]?.locationNo1 === '1';
+    const routeName = fetchedData[index]?.rtNm
+    const isIncoming = fetchedData[index]?.arrmsg1?.includes('도착') || fetchedData[index]?.arrmsg1?.includes('0번째')
     return isIncoming ? (
       <View style={styles.busIncomingContainer}>
         <View style={styles.busIncomingText}>
@@ -30,9 +30,9 @@ export default function BusIncomingDisplay({ fetchedData, index }: BusIncomingDi
       </View>
     ) : null;
   }
-  const isIncoming = fetchedData.some((data: any) => data.locationNo1 === '1');
+  // const isIncoming = fetchedData.some((data: any) => data.locationNo1 === '1');
   const incomingData = fetchedData.filter((data: any) => data.locationNo1 === '1');
-  return isIncoming ? (
+  return incomingData.length ? (
     <View style={styles.busIncomingContainer}>
       <View style={styles.busIncomingText}>
         {incomingData.map((data: any, idx: number) => (
