@@ -3,7 +3,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { StyleSheet, View } from "react-native";
 
 interface BusData {
-  locationNo1: number;
+  locationNo1: string;
   routeName: string;
 }
 
@@ -14,8 +14,9 @@ interface BusIncomingDisplayProps {
 
 export default function BusIncomingDisplay({ fetchedData, index }: BusIncomingDisplayProps) {
   // const targetDataList = fetchedData.filter((data: any) => data.locationNo1 === 1);
+  console.log(fetchedData)
   const routeName = fetchedData[index]?.rtNm || fetchedData[index]?.routeName;
-  const isIncoming = fetchedData[index]?.arrmsg1?.includes('도착') || fetchedData[index]?.arrmsg1?.includes('0번째') || fetchedData[index]?.locationNo1 === 1;
+  const isIncoming = fetchedData[index]?.arrmsg1?.includes('도착') || fetchedData[index]?.arrmsg1?.includes('0번째') || fetchedData[index]?.locationNo1 === '1';
   // console.log('fetchedData', fetchedData);
   // console.log('isIncoming', fetchedData[index]?.arrmsg1);
   return isIncoming ? (
