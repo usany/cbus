@@ -51,6 +51,9 @@ const translations = {
     'bus.global_shuttle': '국제-서울 셔틀버스',
     'bus.bongsa_nesan': '봉선사입구-내산정 방면',
     'bus.bongsa_terminal': '봉선사입구-종점 방면',
+    'nav.seoul': '서울',
+    'nav.global': '국제',
+    'nav.gwangneung': '광릉',
   },
   en: {
     'app.title': 'Kyung Hee University Seoul Campus',
@@ -79,6 +82,9 @@ const translations = {
     'bus.global_shuttle': 'International-Seoul Shuttle',
     'bus.bongsa_nesan': 'Bongsa Temple Entrance-Nesan Direction',
     'bus.bongsa_terminal': 'Bongsa Temple Entrance-Terminal Direction',
+    'nav.seoul': 'Seoul',
+    'nav.global': 'Global',
+    'nav.gwangneung': 'Gwangneung',
   },
 } as const;
 

@@ -1,11 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { usePathname, useRouter } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useLanguage } from "../../contexts/language-context";
 import { useTheme } from "../../contexts/theme-context";
 
 interface DockItem {
   path: string;
-  label: string;
+  labelKey: string;
   iconName: keyof typeof Ionicons.glyphMap;
 }
 
@@ -13,21 +14,22 @@ export function DockNavigation() {
   const pathname = usePathname();
   const router = useRouter();
   const { colors } = useTheme();
+  const { text } = useLanguage();
   
   const dockItems: DockItem[] = [
     {
       path: "/se",
-      label: "서울",
+      labelKey: "nav.seoul",
       iconName: "time-outline",
     },
     {
       path: "/gl",
-      label: "국제",
+      labelKey: "nav.global",
       iconName: "home-outline",
     },
     {
       path: "/gw",
-      label: "광릉",
+      labelKey: "nav.gwangneung",
       iconName: "location-outline",
     },
   ];
@@ -62,7 +64,7 @@ export function DockNavigation() {
               <Text style={[
                 styles.label,
                 { color: isActive(item.path) ? colors.primary : colors.icon }
-              ]}>{item.label}</Text>
+              ]}>{text(item.labelKey as any)}</Text>
             </TouchableOpacity>
           ))}
         </View>
