@@ -115,12 +115,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
             <Text style={[styles.sectionTitle, { color: colors.text }]}>캠퍼스 지정</Text>
             
             <View style={styles.settingItem}>
-              <View style={styles.settingLeft}>
-                <Ionicons name="information-circle" size={20} color={colors.text} style={styles.settingIcon} />
-                <Text style={[styles.settingText, { color: colors.text }]}>
-                  캠퍼스 지정
-                </Text>
-              </View>
               <View style={styles.tabContainer}>
                 <Pressable
                   onPress={() => setCampus('se')}
@@ -215,7 +209,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginRight: 8,
   },
-  tabContainer: { flexDirection: 'row', gap: 8, marginBottom: 24, justifyContent: 'center' },
+  tabContainer: { flexDirection: 'row', gap: 8, marginBottom: 24, justifyContent: 'center', width: '100%' },
   tabActive: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#2563eb' },
   tabInactive: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#e5e7eb' },
   tabActiveText: { color: 'white', fontWeight: '600' },
