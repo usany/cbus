@@ -56,10 +56,10 @@ const translations = {
     'nav.gwangneung': '광릉',
   },
   en: {
-    'app.title': 'Kyung Hee University Seoul Campus',
+    'app.title': 'KHU Seoul Campus',
     'app.subtitle': 'Where should we go?',
-    'app.title.global': 'Kyung Hee University Global Campus',
-    'app.title.gwangneung': 'Kyung Hee University Gwangneung Campus',
+    'app.title.global': 'KHU Global Campus',
+    'app.title.gwangneung': 'KHU Gwangneung Campus',
     'settings.title': 'Settings',
     'settings.appearance': 'Appearance',
     'settings.theme': 'Theme',
