@@ -54,6 +54,8 @@ const translations = {
     'nav.seoul': '서울',
     'nav.global': '국제',
     'nav.gwangneung': '광릉',
+    'commute.weekdays_only': '학기 중 공휴일, 휴무일을 제외한 평일',
+    'commute.free': '요금: 무료',
   },
   en: {
     'app.title': 'KHUBUS Seoul Campus',
@@ -85,6 +87,8 @@ const translations = {
     'nav.seoul': 'Seoul',
     'nav.global': 'Global',
     'nav.gwangneung': 'Gwangneung',
+    'commute.weekdays_only': 'Weekdays only (excluding holidays and days off during semester)',
+    'commute.free': 'Fee: Free',
   },
 } as const;
 
