@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/language-context';
 import { useTheme } from '@/contexts/theme-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 interface SettingsModalProps {
   visible: boolean;
@@ -112,40 +112,40 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
           </View>
           
           <View style={[styles.section, { backgroundColor: colors.card }]}>
-            <Text style={[styles.sectionTitle, { color: colors.text }]}>지정 캠퍼스</Text>
+            <Text style={[styles.sectionTitle, { color: colors.text }]}>캠퍼스 지정</Text>
             
             <View style={styles.settingItem}>
               <View style={styles.settingLeft}>
                 <Ionicons name="information-circle" size={20} color={colors.text} style={styles.settingIcon} />
                 <Text style={[styles.settingText, { color: colors.text }]}>
-                  지정 캠퍼스
+                  캠퍼스 지정
                 </Text>
               </View>
               <View style={styles.tabContainer}>
-                <TouchableOpacity
+                <Pressable
                   onPress={() => setCampus('se')}
                   style={campus === 'se' ? styles.tabActive : styles.tabInactive}
                 >
                   <Text style={campus === 'se' ? styles.tabActiveText : styles.tabInactiveText}>
                     se
                   </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
+                </Pressable>
+                <Pressable
                   onPress={() => setCampus('gl')}
                   style={campus === 'gl' ? styles.tabActive : styles.tabInactive}
                 >
                   <Text style={campus === 'gl' ? styles.tabActiveText : styles.tabInactiveText}>
                     gl
                   </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
+                </Pressable>
+                <Pressable
                   onPress={() => setCampus('gw')}
                   style={campus === 'gw' ? styles.tabActive : styles.tabInactive}
                 >
                   <Text style={campus === 'gw' ? styles.tabActiveText : styles.tabInactiveText}>
                     gw
                   </Text>
-                </TouchableOpacity>
+                </Pressable>
               </View>
             </View>
           </View>

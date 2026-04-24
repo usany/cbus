@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { usePathname, useRouter } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useLanguage } from "../../contexts/language-context";
 import { useTheme } from "../../contexts/theme-context";
 
@@ -43,7 +43,7 @@ export function DockNavigation() {
       <View style={[styles.dockWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
         <View style={styles.dockItems}>
           {dockItems.map((item) => (
-            <TouchableOpacity
+            <Pressable
               key={item.path}
               onPress={() => router.push(item.path as any)}
               style={[
@@ -65,7 +65,7 @@ export function DockNavigation() {
                 styles.label,
                 { color: isActive(item.path) ? colors.primary : colors.icon }
               ]}>{text(item.labelKey as any)}</Text>
-            </TouchableOpacity>
+            </Pressable>
           ))}
         </View>
       </View>
