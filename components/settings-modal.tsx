@@ -40,6 +40,38 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
 
         <ScrollView style={styles.content}>
           <View style={[styles.section, { backgroundColor: colors.card }]}>
+            <Text style={[styles.sectionTitle, { color: colors.text }]}>캠퍼스 지정</Text>
+            
+            <View style={styles.settingItem}>
+              <View style={styles.tabContainer}>
+                <Pressable
+                  onPress={() => setCampus('se')}
+                  style={campus === 'se' ? styles.tabActive : styles.tabInactive}
+                >
+                  <Text style={campus === 'se' ? styles.tabActiveText : styles.tabInactiveText}>
+                    se
+                  </Text>
+                </Pressable>
+                <Pressable
+                  onPress={() => setCampus('gl')}
+                  style={campus === 'gl' ? styles.tabActive : styles.tabInactive}
+                >
+                  <Text style={campus === 'gl' ? styles.tabActiveText : styles.tabInactiveText}>
+                    gl
+                  </Text>
+                </Pressable>
+                <Pressable
+                  onPress={() => setCampus('gw')}
+                  style={campus === 'gw' ? styles.tabActive : styles.tabInactive}
+                >
+                  <Text style={campus === 'gw' ? styles.tabActiveText : styles.tabInactiveText}>
+                    gw
+                  </Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+          <View style={[styles.section, { backgroundColor: colors.card }]}>
             <Text style={[styles.sectionTitle, { color: colors.text }]}>{text('settings.appearance')}</Text>
             
             <Pressable
@@ -111,7 +143,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
             </View>
           </View>
           
-          <View style={[styles.section, { backgroundColor: colors.card }]}>
+          {/* <View style={[styles.section, { backgroundColor: colors.card }]}>
             <Text style={[styles.sectionTitle, { color: colors.text }]}>캠퍼스 지정</Text>
             
             <View style={styles.settingItem}>
@@ -142,7 +174,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
                 </Pressable>
               </View>
             </View>
-          </View>
+          </View> */}
         </ScrollView>
       </View>
     </Modal>
@@ -209,7 +241,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginRight: 8,
   },
-  tabContainer: { flexDirection: 'row', gap: 8, marginBottom: 24, justifyContent: 'center', width: '100%' },
+  tabContainer: { flexDirection: 'row', gap: 8, marginBottom: 24, justifyContent: 'flex-end', width: '100%' },
   tabActive: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#2563eb' },
   tabInactive: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#e5e7eb' },
   tabActiveText: { color: 'white', fontWeight: '600' },
