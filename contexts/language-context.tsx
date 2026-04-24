@@ -25,10 +25,10 @@ type TranslationKey = keyof typeof translations.ko;
 
 const translations = {
   ko: {
-    'app.title': '경희대 서울캠퍼스',
+    'app.title': '쿠우버스 서울캠퍼스',
     'app.subtitle': '어디로 떠나볼까요?',
-    'app.title.global': '경희대 국제캠퍼스',
-    'app.title.gwangneung': '경희대 광릉캠퍼스',
+    'app.title.global': '쿠우버스 국제캠퍼스',
+    'app.title.gwangneung': '쿠우버스 광릉캠퍼스',
     'settings.title': '설정',
     'settings.appearance': '외관',
     'settings.theme': '테마',
@@ -56,10 +56,10 @@ const translations = {
     'nav.gwangneung': '광릉',
   },
   en: {
-    'app.title': 'KHU Seoul Campus',
+    'app.title': 'KHUBUS Seoul Campus',
     'app.subtitle': 'Where should we go?',
-    'app.title.global': 'KHU Global Campus',
-    'app.title.gwangneung': 'KHU Gwangneung Campus',
+    'app.title.global': 'KHUBUS Global Campus',
+    'app.title.gwangneung': 'KHUBUS Gwangneung Campus',
     'settings.title': 'Settings',
     'settings.appearance': 'Appearance',
     'settings.theme': 'Theme',
