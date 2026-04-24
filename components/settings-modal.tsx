@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginRight: 8,
   },
-  tabContainer: { flexDirection: 'row', gap: 8, marginBottom: 24, justifyContent: 'flex-end', width: '100%' },
+  tabContainer: { flexDirection: 'row', gap: 8, justifyContent: 'flex-end', width: '100%' },
   tabActive: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#2563eb' },
   tabInactive: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#e5e7eb' },
   tabActiveText: { color: 'white', fontWeight: '600' },
