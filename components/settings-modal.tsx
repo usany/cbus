@@ -40,7 +40,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
 
         <ScrollView style={styles.content}>
           <View style={[styles.section, { backgroundColor: colors.card }]}>
-            <Text style={[styles.sectionTitle, { color: colors.text }]}>캠퍼스 지정</Text>
+            <Text style={[styles.sectionTitle, { color: colors.text }]}>{text('settings.campus')}</Text>
             
             <View style={styles.settingItem}>
               <View style={styles.tabContainer}>
