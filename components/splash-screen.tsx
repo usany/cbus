@@ -40,7 +40,7 @@ export function SplashScreen() {
             style={styles.spinner}
           />
           <Text style={[styles.loadingText, { color: colors.text }]}>
-            Loading
+            khubus
           </Text>
         </View>
       </View>
