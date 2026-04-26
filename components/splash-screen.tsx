@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { useTheme } from "@/contexts/theme-context";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import LottieOnce from "./ui/LottieOnce";
 
 export function SplashScreen() {
   const { colors, isDark } = useTheme();
@@ -34,6 +35,7 @@ export function SplashScreen() {
         </Text>
         
         <View style={styles.loadingContainer}>
+          <LottieOnce />
           <ActivityIndicator 
             size="large" 
             color={colors.primary}
