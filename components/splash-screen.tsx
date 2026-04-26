@@ -27,10 +27,10 @@ export function SplashScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.content}>
         <Text style={[styles.title, { color: colors.text }]}>
-          Kyung Hee University
+          khubus
         </Text>
         <Text style={[styles.subtitle, { color: colors.primary }]}>
-          Shuttle Bus System
+          khubus
         </Text>
         
         <View style={styles.loadingContainer}>
