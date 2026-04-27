@@ -49,7 +49,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
                   style={campus === 'se' ? styles.tabActive : styles.tabInactive}
                 >
                   <Text style={campus === 'se' ? styles.tabActiveText : styles.tabInactiveText}>
-                    se
+                    {text('nav.seoul')} 
                   </Text>
                 </Pressable>
                 <Pressable
@@ -57,7 +57,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
                   style={campus === 'gl' ? styles.tabActive : styles.tabInactive}
                 >
                   <Text style={campus === 'gl' ? styles.tabActiveText : styles.tabInactiveText}>
-                    gl
+                    {text('nav.global')}
                   </Text>
                 </Pressable>
                 <Pressable
@@ -65,7 +65,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ visible, onClose }
                   style={campus === 'gw' ? styles.tabActive : styles.tabInactive}
                 >
                   <Text style={campus === 'gw' ? styles.tabActiveText : styles.tabInactiveText}>
-                    gw
+                    {text('nav.gwangneung')}
                   </Text>
                 </Pressable>
               </View>
