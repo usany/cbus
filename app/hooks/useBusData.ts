@@ -79,7 +79,6 @@ export const useBusData = (pathname: string) => {
       const data = await response.json();
       const res: Record<number, any> = {};
       (id as number[]).map((item: number, index: number) => res[item] = data.data.gyeonggiBusArrival[index]?.response?.msgBody?.busArrivalList)
-      // console.log('res', res)
       return res;
     } catch (error) {
       console.error('Error fetching bus data:', error);
