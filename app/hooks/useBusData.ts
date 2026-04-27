@@ -42,7 +42,7 @@ export const useBusData = (pathname: string) => {
   const [busData, setBusData] = useState<{ [key: number]: any } | any[]>([]);
   const [timeUntilNextFetch, setTimeUntilNextFetch] = useState(60);
   const vehicle = pathname.slice(4, pathname.length);
-  const isuseSeoulBus = useSeoulBus()
+  const isSeoulBus = useSeoulBus()
   const fetchStep = async (id: number[]) => {
     let response;
     if (pathname.includes('se')) {
@@ -89,7 +89,7 @@ export const useBusData = (pathname: string) => {
 
   const fetchBusData = useCallback(async () => {
     const steps = getProcessSteps(vehicle);
-    if (isuseSeoulBus) {
+    if (isSeoulBus) {
       const busNum = pathname.includes('busOne') ? '01' : pathname.includes('busTwo') ? '02' : 'A01';
       const busId = [busCollection.seoul[busNum]];
       const data = await fetchStep(busId);

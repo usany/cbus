@@ -44,15 +44,15 @@ export default function BusTimeline() {
   const steps = getProcessSteps(vehicle);
   const { busData, timeUntilNextFetch, fetchBusData } = useBusData(pathname);
   // console.log('busData', busData)
-  const isuseSeoulBus = useSeoulBus();
+  const isSeoulBus = useSeoulBus();
   const parsedBusData = typeof busData === 'string' ? JSON.parse(busData) : busData;
   let itemList
-  if (isuseSeoulBus && parsedBusData) {
+  if (isSeoulBus && parsedBusData) {
     itemList = parsedBusData;
   } else {
     itemList = []
   }
-  if ((!isuseSeoulBus && !Object.keys(busData).length) || (isuseSeoulBus && itemList.length === 0)) {
+  if ((!isSeoulBus && !Object.keys(busData).length) || (isSeoulBus && itemList.length === 0)) {
     return <BusTimelineSkeleton />;
   }
 
@@ -63,7 +63,7 @@ export default function BusTimeline() {
         {steps.map((step, index) => {
           // For bus steps, we can access the fetched data from state
           const stepId = typeof step !== 'string' && 'id' in step ? (step as any).id : null;
-          const fetchedData = !isuseSeoulBus ? busData[stepId] : itemList;
+          const fetchedData = !isSeoulBus ? busData[stepId] : itemList;
           // console.log('stepId', stepId)
           // console.log('fetchedData', fetchedData)
           return (
@@ -71,7 +71,7 @@ export default function BusTimeline() {
               <View style={styles.busIconWrapper}>
                 <View style={styles.busIconInner}>
                   {fetchedData && (
-                    <BusIncomingDisplay fetchedData={!isuseSeoulBus ? fetchedData : [fetchedData[index]]} />
+                    <BusIncomingDisplay fetchedData={!isSeoulBus ? fetchedData : [fetchedData[index]]} />
                   )}
                   <View style={styles.busStopIcon}>
                     <MaterialIcons name="keyboard-arrow-down" size={28} color="#fff" />

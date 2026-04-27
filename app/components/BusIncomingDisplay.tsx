@@ -15,11 +15,11 @@ interface BusIncomingDisplayProps {
 }
 
 export default function BusIncomingDisplay({ fetchedData }: BusIncomingDisplayProps) {
-  const isuseSeoulBus = useSeoulBus();
+  const isSeoulBus = useSeoulBus();
   // const targetDataList = fetchedData.filter((data: any) => data.locationNo1 === 1);
   // console.log('fetchedData', fetchedData);
   // console.log('isIncoming', fetchedData[index]?.arrmsg1);
-  if (isuseSeoulBus) {
+  if (isSeoulBus) {
     const routeName = fetchedData[0].rtNm
     const isIncoming = fetchedData[0].arrmsg1?.includes('도착') || fetchedData[0].arrmsg1?.includes('0번째')
     return isIncoming ? (
