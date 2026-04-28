@@ -11,6 +11,15 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.changbea.khubushz8zsu9apcjy1kl5htk",
+            "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/busfavicon.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ckd_qja.khusan",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
