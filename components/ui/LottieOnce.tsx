@@ -1,4 +1,4 @@
-import Lottie from 'react-lottie'
+import Lottie from 'lottie-react-native'
 // import Lottie from 'lottie-react'
 import busLotties from './busLotties.json'
 
@@ -12,7 +12,12 @@ function LottieOnce() {
     },
   }
   return (
-    <Lottie options={defaultOptions} height={300} width={300} />
+    <Lottie 
+      source={busLotties}
+      autoPlay={defaultOptions.autoplay}
+      loop={defaultOptions.loop}
+      style={{ height: 300, width: 300 }}
+    />
   )
 }
 export default LottieOnce
