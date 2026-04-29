@@ -1,6 +1,5 @@
-import { useLanguage } from "@/contexts/language-context";
 import { useCampus } from "@/contexts/campus-context";
-import { useTheme } from "@/contexts/theme-context";
+import { useLanguage } from "@/contexts/language-context";
 import { useEffect, useState } from "react";
 
 export function useAppLoading() {
@@ -14,7 +13,7 @@ export function useAppLoading() {
     if (!isLoading) {
       const timer = setTimeout(() => {
         setIsReady(true);
-      }, 500);
+      }, 500*5);
       return () => clearTimeout(timer);
     }
   }, [isLoading]);

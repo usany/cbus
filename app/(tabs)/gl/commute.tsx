@@ -1,6 +1,7 @@
 import { ThemedText } from "@/components/themed-text";
+import { useLanguage } from "@/contexts/language-context";
 import { usePathname } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import Previous from "../../components/Previous";
 import { process } from "../../components/process";
 import { getProcessSteps } from "../../components/steps";
@@ -8,6 +9,7 @@ import { getProcessSteps } from "../../components/steps";
 export default function Commute() {
   const pathname = usePathname();
   const vehicle = pathname.slice(4, pathname.length);
+  const { text } = useLanguage();
   
   const steps = getProcessSteps(vehicle);
 
@@ -25,13 +27,13 @@ export default function Commute() {
   }
 
   return (
-    <View style={styles.mainContainer}>
+    <ScrollView style={styles.mainContainer}>
       <View style={styles.mainContent}>
         <View style={styles.processSection}>
           <ThemedText style={styles.processTitle}>{process[vehicle]}</ThemedText>
           <View style={styles.infoContainer}>
-            <ThemedText>학기 중 공휴일, 휴무일을 제외한 평일</ThemedText>
-            <ThemedText>요금: 무료</ThemedText>
+            <ThemedText>{text('commute.weekdays_only')}</ThemedText>
+            <ThemedText>{text('commute.free')}</ThemedText>
           </View>
           <View style={styles.timelineContainer}>
             <View style={styles.timelineLine}></View>
@@ -71,7 +73,7 @@ export default function Commute() {
         </View>
         <Previous />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({

@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { useTheme } from "@/contexts/theme-context";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import LottieOnce from "./ui/LottieOnce";
 
 export function SplashScreen() {
   const { colors, isDark } = useTheme();
@@ -27,20 +28,21 @@ export function SplashScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.content}>
         <Text style={[styles.title, { color: colors.text }]}>
-          Kyung Hee University
+          khubus
         </Text>
         <Text style={[styles.subtitle, { color: colors.primary }]}>
-          Shuttle Bus System
+          khubus
         </Text>
         
         <View style={styles.loadingContainer}>
+          <LottieOnce />
           <ActivityIndicator 
             size="large" 
             color={colors.primary}
             style={styles.spinner}
           />
           <Text style={[styles.loadingText, { color: colors.text }]}>
-            Loading
+            khubus
           </Text>
         </View>
       </View>

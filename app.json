@@ -1,37 +1,47 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "khusan",
+    "name": "khubus",
+    "slug": "khubus-hz8zsu-9apcjy1kl5htk",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/busfavicon.png",
+    "scheme": "khubus",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.changbea.khubushz8zsu9apcjy1kl5htk",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/busfavicon.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "foregroundImage": "./assets/images/busfavicon.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.ckd_qja.myapp"
+      "package": "com.ckd_qja.khusan"
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/busfavicon.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/busfavicon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
@@ -48,9 +58,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "8ee90aed-1ff4-4ce7-ac16-0a6d7229f401"
+        "projectId": "777dbfdf-dd87-4a3b-a05e-1215d3b8f809"
       }
     },
-    "owner": "ckd_qja"
+    "owner": "changbea",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/777dbfdf-dd87-4a3b-a05e-1215d3b8f809"
+    }
   }
 }

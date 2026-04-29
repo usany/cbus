@@ -1,8 +1,35 @@
+import { useTheme } from "@/contexts/theme-context";
 import { Ionicons } from "@expo/vector-icons";
 import { usePathname } from "expo-router";
 import { useEffect, useState } from "react";
-import { Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { busCollection } from "./busCollection";
+
+export const BusTimelineSkeleton = () => {
+  const skeletonItems = Array.from({ length: 3 }, (_, i) => i);
+  
+  return (
+    <View style={styles.timelineContainer}>
+      <View style={styles.timelineLine} />
+      <View style={styles.timelineContentBus}>
+        {skeletonItems.map((index) => (
+          <View key={index} style={styles.busStepContainer}>
+            <View style={styles.busIconWrappeaar}>
+              <View style={styles.busIconInner}>
+                <View style={[styles.busStopIcon, styles.skeletonIcon]} />
+              </View>
+            </View>
+            <View style={styles.stepTextContainer}>
+              <View style={[styles.skeletonText, styles.skeletonTitle]} />
+              <View style={[styles.skeletonText, styles.skeletonSubtitle]} />
+              <View style={[styles.skeletonText, styles.skeletonData]} />
+            </View>
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+};
 
 // Global flag to prevent multiple fetches across component remounts
 // let globalHasFetched = false;
@@ -57,6 +84,7 @@ const Schedule = () => {
   // const hasFetched = useRef(false);
   const campus = pathname.includes('se') ? 'seoul' : pathname.includes('gw') ? 'gwangneung' : 'global';
   const selectedBus = busCollection[campus];
+  const { colors } = useTheme();
   
   const toggleAccordion = (index: number) => {
     setOpenAccordions(prev => {
@@ -72,9 +100,9 @@ const Schedule = () => {
   
   const fetchBus = async (id: number[]) => {
     if (pathname.includes('se')) {
-      const response = await fetch(`http://localhost:5000/graphql`, {
+      // const response = await fetch(`http://localhost:5000/graphql`, {
       // const response = await fetch(`https://qlroute.onrender.com/graphql`, {
-      // const response = await fetch(`https://routes-xlbe.vercel.app/graphql`, {
+      const response = await fetch(`https://routes-xlbe.vercel.app/graphql`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,9 +117,9 @@ const Schedule = () => {
     }
     console.log('id', id)
     try {
-      const response = await fetch(`http://localhost:5000/graphql`, {
+      // const response = await fetch(`http://localhost:5000/graphql`, {
       // const response = await fetch(`https://qlroutes.onrender.com/graphql`, {
-      // const response = await fetch(`https://routes-xlbe.vercel.app/graphql`, {  
+      const response = await fetch(`https://routes-xlbe.vercel.app/graphql`, {  
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,28 +167,28 @@ const Schedule = () => {
     const peekAlloc = bus.term;
     
     return (
-      <View key={index} style={styles.busItem}>
+      <View key={index} style={[styles.busItem, { backgroundColor: colors.card, borderColor: colors.border }]}>
         <View style={styles.busItemHeader}>
           <View style={styles.busItemHeaderLeft}>
-            <View style={styles.busNumber}>
-              <Text style={styles.busNumberText}>{index + 1}</Text>
+            <View style={[styles.busNumber, { backgroundColor: colors.primary }]}> 
+              <Text style={[styles.busNumberText, { color: colors.card }]}>{index + 1}</Text>
             </View>
-            <Text style={styles.routeName}>{routeName}</Text>
+            <Text style={[styles.routeName, { color: colors.text }]}>{routeName}</Text>
           </View>
-          <Text style={styles.timeText}>{upFirstTime}~{upLastTime}</Text>
+          <Text style={[styles.timeText, { color: colors.icon }]}>{upFirstTime}~{upLastTime}</Text>
         </View>
 
-        <View style={styles.busItemContent}>
+        <View style={[styles.busItemContent, { backgroundColor: colors.background, borderTopColor: colors.border }]}>
           <View style={styles.infoRow}>
-            <Ionicons name="time-outline" size={16} color="#6b7280" />
-            <Text style={styles.infoLabel}>운행시간</Text>
-            <Text style={styles.infoValue}>{upFirstTime}~{upLastTime}</Text>
+            <Ionicons name="time-outline" size={16} color={colors.icon} />
+            <Text style={[styles.infoLabel, { color: colors.text }]}>운행시간</Text>
+            <Text style={[styles.infoValue, { color: colors.text }]}>{upFirstTime}~{upLastTime}</Text>
           </View>
 
           <View style={styles.infoRow}>
-            <Ionicons name="calendar-outline" size={16} color="#6b7280" />
-            <Text style={styles.infoLabel}>배차간격</Text>
-            <Text style={styles.infoValue}>{peekAlloc}분</Text>
+            <Ionicons name="calendar-outline" size={16} color={colors.icon} />
+            <Text style={[styles.infoLabel, { color: colors.text }]}>배차간격</Text>
+            <Text style={[styles.infoValue, { color: colors.text }]}>{peekAlloc}분</Text>
           </View>
         </View>
       </View>
@@ -182,56 +210,56 @@ const Schedule = () => {
     const isOpen = openAccordions.has(index);
     
     return (
-      <View key={index} style={styles.accordionItem}>
-        <TouchableOpacity
+      <View key={index} style={[styles.accordionItem, { backgroundColor: colors.card, borderColor: colors.border }]}>
+        <Pressable
           onPress={() => toggleAccordion(index)}
-          style={styles.accordionHeader}
+          style={[styles.accordionHeader, { backgroundColor: colors.card }]}
         >
           <View style={styles.accordionHeaderLeft}>
-            <View style={styles.busNumber}>
-              <Text style={styles.busNumberText}>{index + 1}</Text>
+            <View style={[styles.busNumber, { backgroundColor: colors.primary }]}>
+              <Text style={[styles.busNumberText, { color: colors.card }]}>{index + 1}</Text>
             </View>
-            <Text style={styles.routeName}>{routeName}</Text>
+            <Text style={[styles.routeName, { color: colors.text }]}>{routeName}</Text>
           </View>
           <View style={styles.accordionHeaderRight}>
-            <Text style={styles.timeText}>{upFirstTime}~{upLastTime}</Text>
+            <Text style={[styles.timeText, { color: colors.icon }]}>{upFirstTime}~{upLastTime}</Text>
             <Ionicons 
               name={isOpen ? "chevron-up" : "chevron-down"} 
               size={16} 
-              color="#6b7280" 
+              color={colors.icon} 
             />
           </View>
-        </TouchableOpacity>
+        </Pressable>
         
         {isOpen && (
-          <View style={styles.accordionContent}>
+          <View style={[styles.accordionContent, { backgroundColor: colors.background, borderTopColor: colors.border }]}>
             <View style={styles.infoRow}>
-              <Ionicons name="time-outline" size={16} color="#6b7280" />
-              <Text style={styles.infoLabel}>운행시간</Text>
-              <Text style={styles.infoValue}>{upFirstTime}~{upLastTime}</Text>
+              <Ionicons name="time-outline" size={16} color={colors.icon} />
+              <Text style={[styles.infoLabel, { color: colors.text }]}>운행시간</Text>
+              <Text style={[styles.infoValue, { color: colors.text }]}>{upFirstTime}~{upLastTime}</Text>
             </View>
             
             <View style={styles.scheduleSection}>
               <View style={styles.scheduleHeader}>
-                <Ionicons name="calendar-outline" size={16} color="#6b7280" />
-                <Text style={styles.infoLabel}>배차간격</Text>
+                <Ionicons name="calendar-outline" size={16} color={colors.icon} />
+                <Text style={[styles.infoLabel, { color: colors.text }]}>배차간격</Text>
               </View>
               <View style={styles.scheduleDetails}>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>평일:</Text>
-                  <Text style={styles.scheduleValue}>{peekAlloc}~{nPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>평일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{peekAlloc}~{nPeekAlloc}분</Text>
                 </View>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>토요일:</Text>
-                  <Text style={styles.scheduleValue}>{satPeekAlloc}~{satNPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>토요일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{satPeekAlloc}~{satNPeekAlloc}분</Text>
                 </View>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>일요일:</Text>
-                  <Text style={styles.scheduleValue}>{sunPeekAlloc}~{sunNPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>일요일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{sunPeekAlloc}~{sunNPeekAlloc}분</Text>
                 </View>
                 <View style={styles.scheduleRow}>
-                  <Text style={styles.scheduleLabel}>공휴일:</Text>
-                  <Text style={styles.scheduleValue}>{wePeekAlloc}~{weNPeekAlloc}분</Text>
+                  <Text style={[styles.scheduleLabel, { color: colors.icon }]}>공휴일:</Text>
+                  <Text style={[styles.scheduleValue, { color: colors.text }]}>{wePeekAlloc}~{weNPeekAlloc}분</Text>
                 </View>
               </View>
             </View>
@@ -244,13 +272,13 @@ const Schedule = () => {
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => setIsDrawerOpen(true)}
-          style={styles.scheduleButton}
+          style={[styles.scheduleButton, { backgroundColor: colors.card }]}
         >
-          <Text style={styles.scheduleTitle}>버스 시간표</Text>
-          <Text style={styles.scheduleSubtitle}>클릭하여 전체 버스 시간표 보기</Text>
-        </TouchableOpacity>
+          <Text style={[styles.scheduleTitle, { color: colors.text }]}>버스 시간표</Text>
+          <Text style={[styles.scheduleSubtitle, { color: colors.icon }]}>클릭하여 전체 버스 시간표 보기</Text>
+        </Pressable>
       </View>
 
       <Modal
@@ -259,15 +287,15 @@ const Schedule = () => {
         presentationStyle="pageSheet"
         onRequestClose={() => setIsDrawerOpen(false)}
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>버스 시간표</Text>
-            <TouchableOpacity
+        <View style={[styles.modalContainer, { backgroundColor: colors.background }]}>
+          <View style={[styles.modalHeader, { borderBottomColor: colors.border }]}>
+            <Text style={[styles.modalTitle, { color: colors.text }]}>버스 시간표</Text>
+            <Pressable
               onPress={() => setIsDrawerOpen(false)}
-              style={styles.closeButton}
+              style={[styles.closeButton, { backgroundColor: colors.card }]}
             >
-              <Ionicons name="chevron-down" size={20} color="#6b7280" />
-            </TouchableOpacity>
+              <Ionicons name="chevron-down" size={20} color={colors.icon} />
+            </Pressable>
           </View>
           
           <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -452,6 +480,23 @@ const styles = StyleSheet.create({
     borderTopColor: '#e5e7eb',
     gap: 12,
   },
+  
+  // Timeline styles for BusTimelineSkeleton
+  timelineContainer: { position: 'relative', width: '100%' },
+  timelineLine: { position: 'absolute', left: 60, top: 0, bottom: 0, width: 4, backgroundColor: '#d1d5db' },
+  timelineContentBus: { position: 'relative', flexDirection: 'column', gap: 32, paddingLeft: 32, paddingTop: 20, width: '100%' },
+  busStepContainer: { gap: 24, flexDirection: 'row' },
+  busIconWrappeaar: { flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: 64 },
+  busIconInner: { flexDirection: 'column', alignItems: 'center', justifyContent: 'center' },
+  busStopIcon: { width: 64, height: 64, backgroundColor: '#2563eb', borderRadius: 9999, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
+  stepTextContainer: { textAlign: 'left', maxWidth: 448, flex: 1, justifyContent: 'flex-end' },
+  
+  // Skeleton loading styles
+  skeletonIcon: { backgroundColor: '#e5e7eb' },
+  skeletonText: { backgroundColor: '#e5e7eb', borderRadius: 4 },
+  skeletonTitle: { width: 200, height: 20, marginBottom: 8 },
+  skeletonSubtitle: { width: 150, height: 16, marginBottom: 8 },
+  skeletonData: { width: 100, height: 14 },
 });
 
 export default Schedule;
